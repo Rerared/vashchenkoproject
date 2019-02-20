@@ -1,5 +1,6 @@
 package com.vashchenko.services;
 
+import com.vashchenko.domain.Order;
 import com.vashchenko.domain.Product;
 
 import java.util.List;
@@ -12,7 +13,19 @@ public interface OrderService {
      */
     public void makeOrder(long id, List<Product> products);
     /**
-     * @return a status of order, is he active or no.
+     * Delete order by client's id.
+     * @param id the client's id.
      */
-    public boolean isActive();
+    void deleteOrder(long id);
+
+    /**
+     * Modify order by client's id.
+     * @param id the client's id.
+     */
+    void modifyOrder(long id);
+    /**
+     * Returns list of all orders.
+     * @return List of all orders
+     */
+     List<Order> getAllOrders();
 }

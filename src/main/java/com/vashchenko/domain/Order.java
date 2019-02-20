@@ -1,14 +1,19 @@
 package com.vashchenko.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Order {
     private long id;
-    private Client client;
+    private long clientId;
     private List<Product> products;
 
-    public Order(Client client, List<Product> products) {
-        this.client = client;
+    public Order() {
+
+    }
+
+    public Order(long clientId, List<Product> products) {
+        this.clientId = clientId;
         this.products = products;
     }
 
@@ -16,9 +21,28 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", client=" + client +
+                ", client=" + clientId +
                 ", products=" + products +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
+        Order order = (Order) o;
+        return id == order.id &&
+                clientId == order.clientId &&
+                products.equals(order.products);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, clientId, products);
     }
 
     public long getId() {
@@ -29,12 +53,12 @@ public class Order {
         this.id = id;
     }
 
-    public Client getClient() {
-        return client;
+    public long getClientId() {
+        return clientId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(long clientId) {
+        this.clientId = clientId;
     }
 
     public List<Product> getProducts() {

@@ -1,19 +1,35 @@
 package com.vashchenko.dao;
 
+import com.vashchenko.domain.Order;
 import com.vashchenko.domain.Product;
 
 import java.util.List;
 
 public interface OrderDao {
     /**
-     * Save order.
-     * @param id of the client.
+     * Create order.
+     * @param clientId of the client.
      * @param products list of products.
      */
-    void saveOrder(long id, List<Product> products);
+    void createOrder(long clientId, List<Product> products);
+
     /**
-     * @return status of order.
+     * Delete order by client's id.
+     * @param clientId the client's id.
      */
-    boolean isActive();
+    void delete(long clientId);
+
+    /**
+     * Modify order by client's id.
+     * @param clientId the client's id.
+     */
+    void modify(long clientId);
+
+    /**
+     * Returns list of all orders.
+     * @return List of all orders
+     */
+    List<Order> getAllOrders();
+
 
 }

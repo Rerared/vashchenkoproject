@@ -5,17 +5,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainMenu {
+    private final BufferedReader br;
+    private final AdminMenu adminMenu;
+    private final ClientMenu clientMenu;
 
-    private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private final AdminMenu adminMenu = new AdminMenu();
-    private final ClientMenu clientMenu = new ClientMenu();
+
+    public MainMenu(BufferedReader br, AdminMenu adminMenu, ClientMenu clientMenu) {
+        this.br = br;
+        this.adminMenu = adminMenu;
+        this.clientMenu = clientMenu;
+    }
+
+
     private boolean isRunning = true;
+
+
     public void show() throws IOException {
 
         while (isRunning) {
             System.out.println("1. Admin");
             System.out.println("2. Client");
-            System.out.println("0. Exit");
+            System.out.println("E - Exit");
 
             switch (br.readLine()) {
                 case "1":
@@ -24,7 +34,7 @@ public class MainMenu {
                 case "2":
                     clientMenu.show();
                     break;
-                case "0":
+                case "E":
                     isRunning = false;
                     break;
                 default:

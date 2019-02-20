@@ -2,7 +2,14 @@ package com.vashchenko.dao;
 
 import com.vashchenko.domain.Client;
 
+import java.util.List;
+
 public interface ClientDao {
+    /**
+     * Return all clients
+     * @return list of all clients.
+     */
+    List<Client> getAllClients();
     /**
      * @param client
      * @return is he was saved successful.
@@ -11,16 +18,16 @@ public interface ClientDao {
 
     /**
      * Delete a client by id.
-     * @param id of Client.
+     * @param clientId of Client.
      * @return is he was deleted successful.
      */
-    boolean deleteClient(long id);
+    boolean deleteClient(long clientId);
 
     /**
      * Modify client by id.
-     * @param id of Client.
+     * @param clientId of Client.
      * @return is he was modified successful.
      */
-    boolean modifyClient(long id);
+    boolean modifyClient(long clientId);
 
 }
