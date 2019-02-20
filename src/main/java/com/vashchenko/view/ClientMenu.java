@@ -107,7 +107,7 @@ public class ClientMenu {
         String surname = br.readLine();
         System.out.println("Enter your age");
         int age = Integer.parseInt(br.readLine());
-        System.out.println("Enter your phone number (XXX)XXX-XX-XX");
+        System.out.println("Enter your phone number XXXXXXXXXX");
         String number = br.readLine();
         System.out.println("Enter your email");
         String email = br.readLine();
